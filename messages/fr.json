@@ -1,3 +1,8 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format"
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"$construction_title": "En construction:",
+	"$construction_text": "Ce site Web en est à ses débuts. Attendez-vous à des changements majeurs jusqu'à ce que la version 1.0 soit prête ! Et plein de nouveautés !",
+	"$home": "Accueil",
+	"$about": "À propos",
+	"$welcome": "Bienvenue sur SvelteKit"
 }
