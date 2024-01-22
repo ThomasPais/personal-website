@@ -7,6 +7,8 @@
 	import { route } from '$lib/i18n';
 	import { languageTag } from '$paraglide/runtime';
 
+	import Tooltip from '$lib/components/tooltip.svelte';
+
 	import * as m from '$paraglide/messages';
 </script>
 
@@ -21,21 +23,25 @@
 	</ul>
 
 	<ul>
-		<li>
-			<a href={route($page.url.pathname, 'en')} hreflang={'en'}
-				><EN width="1.5rem" height="1.5rem" /></a
-			>
-		</li>
+		<Tooltip text="Switch to english">
+			<li>
+				<a href={route($page.url.pathname, 'en')} hreflang={'en'}
+					><EN width="1.5rem" height="1.5rem" /></a
+				>
+			</li>
+		</Tooltip>
 		<li>
 			<a href={route($page.url.pathname, 'fr')} hreflang={'fr'}
 				><FR width="1.5rem" height="1.5rem" /></a
 			>
 		</li>
-		<li>
-			<a href={route($page.url.pathname, 'es')} hreflang={'es'}
-				><ES width="1.5rem" height="1.5rem" /></a
-			>
-		</li>
+		<Tooltip text="Switch to spanish">
+			<li>
+				<a href={route($page.url.pathname, 'es')} hreflang={'es'}
+					><ES width="1.5rem" height="1.5rem" /></a
+				>
+			</li>
+		</Tooltip>
 	</ul>
 </header>
 
