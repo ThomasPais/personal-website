@@ -6,6 +6,7 @@
 	"$dark": "Dark",
 	"$system": "System",
 	"$tooltip_theme": "Switch theme",
+	"$tooltip_lang": "Switch language",
 	"$home": "Home",
 	"$about": "About",
 	"$welcome": "Welcome to SvelteKit"

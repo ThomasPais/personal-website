@@ -8,7 +8,8 @@
 	import { languageTag } from '$paraglide/runtime';
 
 	import Tooltip from '$lib/components/tooltip.svelte';
-	import ThemeSwitch from '../theme-switcher/theme-switch.svelte';
+	import ThemeSwitch from '$lib/components/theme-switch/theme-switch.svelte';
+	import LangSwitch from '$lib/components/lang-switch/lang-switch.svelte';
 
 	import * as m from '$paraglide/messages';
 </script>
@@ -23,29 +24,17 @@
 		</li>
 	</ul>
 
-	<Tooltip text={m.$tooltip_theme()}>
-		<ThemeSwitch />
-	</Tooltip>
 	<ul>
-		<Tooltip text="Switch to english">
-			<li>
-				<a href={route($page.url.pathname, 'en')} hreflang={'en'}
-					><EN width="1.5rem" height="1.5rem" /></a
-				>
-			</li>
-		</Tooltip>
 		<li>
-			<a href={route($page.url.pathname, 'fr')} hreflang={'fr'}
-				><FR width="1.5rem" height="1.5rem" /></a
-			>
+			<Tooltip text={m.$tooltip_theme()}>
+				<ThemeSwitch />
+			</Tooltip>
 		</li>
-		<Tooltip text="Switch to spanish">
-			<li>
-				<a href={route($page.url.pathname, 'es')} hreflang={'es'}
-					><ES width="1.5rem" height="1.5rem" /></a
-				>
-			</li>
-		</Tooltip>
+		<li>
+			<Tooltip text={m.$tooltip_lang()}>
+				<LangSwitch />
+			</Tooltip>
+		</li>
 	</ul>
 </header>
 
