@@ -5,7 +5,7 @@
 
 <div>
 	<Construction
-		style="color: #e47312;
+		style="color: var(--accent-color);
 		width: var(--icon-size);
 		height: var(--icon-size);
 		display: var(--icon-display);"
@@ -28,8 +28,8 @@
 		gap: 0.5rem;
 		align-items: flex-start;
 		border-radius: 0.75rem;
-		border: 1px solid #e47312;
-		background-color: #f7f0e3;
+		border: 1px solid var(--accent-color);
+		background-color: var(--soft-accent-color);
 	}
 
 	p {

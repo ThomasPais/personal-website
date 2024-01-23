@@ -4,6 +4,8 @@
 	import { browser } from '$app/environment';
 	import ParaglideHead from '$lib/ParaglideHead.svelte';
 
+	import { ModeWatcher } from 'mode-watcher';
+
 	//Use the default language if no language is given
 	$: lang = ($page.params.lang as AvailableLanguageTag) ?? sourceLanguageTag;
 	$: setLanguageTag(lang);
@@ -13,6 +15,8 @@
 </script>
 
 <ParaglideHead />
+
+<ModeWatcher />
 
 {#key lang}
 	<slot />

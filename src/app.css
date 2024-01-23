@@ -1,5 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --text-color: #000000;
+    --soft-text-color: #525252;
+    --softer-text-color: #a3a3a3;
+
+    --surface-color: #d4d4d4;
+    --highlight-surface-color: #e5e5e5;
+
+    --background-color: #f5f5f5;
+
+    --accent-color: #e47312;
+    --soft-accent-color: #f7f0e3;
+}
+
+.dark {
+    --text-color: #ffffff;
+    --soft-text-color: #a3a3a3;
+    --softer-text-color: #525252;
+
+    --surface-color: #404040;
+    --highlight-surface-color: #262626;
+
+    --background-color: #171717;
+
+    --accent-color: #f7b155;
+    --soft-accent-color: #2f1f16;
+}
+
 
 body {
+    color: var(--text-color);
+    background-color: var(--background-color);
     font-family: 'Inter', sans-serif;
 }

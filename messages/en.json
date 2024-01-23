@@ -2,6 +2,10 @@
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"$construction_title": "In construction:",
 	"$construction_text": "This website is in its early stages. Expect breaking changes until 1.0 is ready! And lots of new stuff!",
+	"$light": "Light",
+	"$dark": "Dark",
+	"$system": "System",
+	"$tooltip_theme": "Switch theme",
 	"$home": "Home",
 	"$about": "About",
 	"$welcome": "Welcome to SvelteKit"

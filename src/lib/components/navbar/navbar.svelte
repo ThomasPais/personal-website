@@ -8,6 +8,7 @@
 	import { languageTag } from '$paraglide/runtime';
 
 	import Tooltip from '$lib/components/tooltip.svelte';
+	import ThemeSwitch from '../theme-switcher/theme-switch.svelte';
 
 	import * as m from '$paraglide/messages';
 </script>
@@ -22,6 +23,9 @@
 		</li>
 	</ul>
 
+	<Tooltip text={m.$tooltip_theme()}>
+		<ThemeSwitch />
+	</Tooltip>
 	<ul>
 		<Tooltip text="Switch to english">
 			<li>
