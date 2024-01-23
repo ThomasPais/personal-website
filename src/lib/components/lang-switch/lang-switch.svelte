@@ -86,6 +86,7 @@
 	button {
 		background: none;
 		border: none;
+		cursor: pointer;
 	}
 
 	.trigger {
