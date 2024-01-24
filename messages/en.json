@@ -9,5 +9,9 @@
 	"$tooltip_lang": "Switch language",
 	"$home": "Home",
 	"$about": "About",
-	"$welcome": "Welcome to SvelteKit"
+	"$contact": "Contact",
+	"$navigation": "Navigation",
+	"$categories": "Categories",
+	"$welcome_title": "Welcome to SvelteKit",
+	"$welcome_text": "Hello, my name is Thomas! I am a student at Enseeiht, an engineering school in Toulouse specializing in electronics."
 }
