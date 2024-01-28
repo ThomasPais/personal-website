@@ -24,7 +24,7 @@
 		</div>
 	</div>
 
-	<img src="https://placehold.co/400.png" alt="Thomas Païs" />
+	<!--<img src="https://placehold.co/400.png" alt="Thomas Païs" />-->
 </section>
 
 <section>
@@ -83,9 +83,9 @@
 		padding-inline: 1rem;
 		padding-block: 0.5rem;
 	}
-
+	/*
 	img {
 		border-radius: 0.5rem;
 		max-width: 50%;
-	}
+	}*/
 </style>

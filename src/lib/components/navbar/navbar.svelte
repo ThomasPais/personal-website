@@ -1,11 +1,15 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import { route } from '$lib/i18n';
 	import { languageTag } from '$paraglide/runtime';
 	import * as m from '$paraglide/messages';
 
 	import Circuit from '~icons/tabler/cpu';
+	import Language from '~icons/tabler/language';
+	import Sun from '~icons/tabler/sun';
 
-	import { onMount } from 'svelte';
+	import CommandMenu from '../command-menu/command-menu.svelte';
 
 	let headerClass: string = 'big-header';
 
@@ -26,26 +30,28 @@
 	<div class="container">
 		<nav>
 			<a href={route('/', languageTag())} hreflang={languageTag()} class="logo">
-				<Circuit style="width: 2rem; height: 2rem;" />
-				Thomas Païs
+				<Circuit style="width: 1.5rem; height: 1.5rem; color: var(--primary);" />
+				<span>Thomas Païs</span>
 			</a>
-
-			Search
 
 			<ul>
 				<li>
-					<a href={route('/', languageTag())} hreflang={languageTag()}>Projects</a>
+					<a href={route('/about', languageTag())} hreflang={languageTag()}>About Me</a>
 				</li>
 				<li>
 					<a href={route('/test', languageTag())} hreflang={languageTag()}>Articles</a>
 				</li>
 				<li>
-					<a href={route('/about', languageTag())} hreflang={languageTag()}>About Me</a>
+					<a href={route('/', languageTag())} hreflang={languageTag()}>Projects</a>
 				</li>
 			</ul>
 		</nav>
 
-		<a href="/" class="resume-button">Resume</a>
+		<div class="utilities">
+			<CommandMenu />
+			<button> <Sun style="width: 1.5rem; height: 1.5rem;" /> </button>
+			<button> <Language style="width: 1.5rem; height: 1.5rem;" /> </button>
+		</div>
 	</div>
 </header>
 
@@ -58,8 +64,8 @@
 		display: grid;
 		grid-template-columns: 1fr minmax(auto, 1024px) 1fr;
 		column-gap: 1.5rem;
-		transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 		background-color: var(--background);
+		transition: height 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.big-header {
@@ -73,6 +79,7 @@
 
 	.container {
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		grid-column: 2;
 		height: inherit;
@@ -80,9 +87,8 @@
 
 	nav {
 		display: flex;
-		justify-content: space-between;
+		gap: 1.5rem;
 		align-items: center;
-		flex: 1;
 	}
 
 	a {
@@ -93,35 +99,56 @@
 	.logo {
 		display: flex;
 		align-items: center;
+		gap: 0.5rem;
+	}
+
+	span {
+		font-weight: 700;
 	}
 
 	ul {
-		padding: 0;
 		list-style: none;
 		display: flex;
 		gap: 1.5rem;
-		margin: 0;
+		padding-left: 0;
+		margin-block: 0;
 	}
 
-	.separator {
-		background-color: var(--text-color);
-		height: 1.5rem;
-		width: 1px;
-		margin-inline: 1.5rem;
+	ul a {
+		font-size: 0.875rem;
+		color: var(--muted-foreground);
+		transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
-	.resume-button {
+	ul a:hover {
+		color: var(--accent-foreground);
+	}
+
+	.utilities {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	button {
+		cursor: pointer;
+		border: none;
+		background: none;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: var(--primary-foreground);
-		background-color: var(--primary);
-		border-radius: var(--radius);
-		padding: 0.5rem 1rem;
+		padding-inline: 0;
+		width: 2.25rem;
+		height: 2rem;
+		border-radius: 0.375rem;
+		color: var(--muted-foreground);
+		transition-property: color, background-color;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 0.15s;
 	}
 
-	.resume-button:hover {
-		background-color: var(--primary);
+	button:hover {
+		color: var(--accent-foreground);
+		background-color: var(--accent);
 	}
 
 	@media (min-width: 480px) {
