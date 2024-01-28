@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../../app.css';
 
-	import Construction from '$lib/components/construction.svelte';
 	import Navbar from '$lib/components/navbar/navbar.svelte';
+	import Construction from '$lib/components/construction.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
 </script>
 
@@ -29,7 +29,9 @@
 	main {
 		display: grid;
 		grid-template-columns: 1fr minmax(auto, 640px) 1fr;
+		column-gap: 1rem;
 		flex: 1;
+		margin-top: 128px;
 	}
 
 	.content {

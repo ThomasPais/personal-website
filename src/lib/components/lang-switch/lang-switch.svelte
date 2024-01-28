@@ -29,8 +29,7 @@
 		forceVisible: true,
 		defaultSelected: langToOption(languageTag()),
 		positioning: {
-			placement: 'bottom',
-			fitViewport: true
+			placement: 'bottom'
 		},
 		onSelectedChange: ({ curr, next }) => {
 			const definedNext = next ?? curr ?? languages[0];

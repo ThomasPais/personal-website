@@ -1,16 +1,17 @@
 <script lang="ts">
-	import Construction from '~icons/lucide/construction';
+	import Tool from '~icons/tabler/tool';
 	import * as m from '$paraglide/messages';
 </script>
 
 <div>
-	<Construction
-		style="color: var(--accent-color);
-		width: var(--icon-size);
-		height: var(--icon-size);
-		display: var(--icon-display);"
-	/>
 	<p>
+		<Tool
+			style="color: var(--primary);
+			width: var(--icon-size);
+			height: var(--icon-size);
+			display: var(--icon-display);
+			vertical-align: var(--icon-align);"
+		/>
 		<span>{m.$construction_title()}</span>
 		{m.$construction_text()} 🚀
 	</p>
@@ -20,16 +21,13 @@
 	div {
 		--icon-size: 2rem;
 		--icon-display: block;
+		--icon-align: baseline;
 
-		display: flex;
 		padding: 1rem;
 		margin-block: 1rem;
-		flex-direction: column;
-		gap: 0.5rem;
-		align-items: flex-start;
-		border-radius: 0.75rem;
-		border: 1px solid var(--accent-color);
-		background-color: var(--soft-accent-color);
+		border-radius: 0.5rem;
+		border: 1px solid var(--border);
+		background-color: var(--background);
 	}
 
 	p {
@@ -44,9 +42,7 @@
 		div {
 			--icon-size: 1.5rem;
 			--icon-display: inline-block;
-
-			flex-direction: row;
-			align-items: center;
+			--icon-align: middle;
 		}
 	}
 </style>

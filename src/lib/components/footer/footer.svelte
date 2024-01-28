@@ -1,154 +1,115 @@
 <script lang="ts">
-	import Mail from '~icons/lucide/mail';
-	import Github from '~icons/simple-icons/github';
-	import Whatsapp from '~icons/simple-icons/whatsapp';
-	import Linkedin from '~icons/simple-icons/linkedin';
-	import Circuit from '~icons/lucide/circuit-board';
+	import Mail from '~icons/tabler/mail';
+	import Github from '~icons/tabler/brand-github';
+	import Whatsapp from '~icons/tabler/brand-whatsapp';
+	import Linkedin from '~icons/tabler/brand-linkedin';
 
 	import * as m from '$paraglide/messages';
 </script>
 
 <footer>
-	<div class="grid">
-		<div class="flex">
-			<div class="links">
-				<div>
-					<h3>{m.$contact()}</h3>
-					<ul>
-						<li>
-							<a href="/">
-								<Mail style="width: 1.5rem; height: 1.5rem; display: inline-block;" />
-								thomaspais@outlook.com
-							</a>
-						</li>
-						<li>
-							<a href="/">
-								<Whatsapp style="width: 1.5rem; height: 1.5rem; display: inline-block;" />
-								WhatsApp
-							</a>
-						</li>
-						<li>
-							<a href="/">
-								<Github style="width: 1.5rem; height: 1.5rem; display: inline-block;" />
-								Github
-							</a>
-						</li>
-						<li>
-							<a href="/">
-								<Linkedin style="width: 1.5rem; height: 1.5rem; display: inline-block;" />
-								Linkedin
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div>
-					<h3>{m.$navigation()}</h3>
-					<ul>
-						<li>
-							<a href="/">Home</a>
-						</li>
-						<li>
-							<a href="/">About</a>
-						</li>
-						<li>
-							<a href="/">About</a>
-						</li>
-						<li>
-							<a href="/">Mimi</a>
-						</li>
-					</ul>
-				</div>
-				<div>
-					<h3>{m.$categories()}</h3>
-					<ul>
-						<li>
-							<a href="/">Web</a>
-						</li>
-						<li>
-							<a href="/">Game</a>
-						</li>
-						<li>
-							<a href="/">Mimi</a>
-						</li>
-						<li>
-							<a href="/">Mimi</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="copyrights">
-				<p>
-					&copy; {new Date().getFullYear()} Thomas Païs —— <em>Toulouse</em>
-				</p>
+	<div>
+		<ul>
+			<li>
+				<a href="/"><Mail style="width: 1.5rem; height: 1.5rem;" /></a>
+			</li>
+			<li>
+				<a href="/"><Whatsapp style="width: 1.5rem; height: 1.5rem;" /></a>
+			</li>
+			<li>
+				<a href="/"><Github style="width: 1.5rem; height: 1.5rem;" /></a>
+			</li>
+			<li>
+				<a href="/"><Linkedin style="width: 1.5rem; height: 1.5rem;" /></a>
+			</li>
+		</ul>
 
-				<Circuit width="2em" height="2em" />
-			</div>
-		</div>
+		<p>
+			{m.footer()} <a href="/">Sveltekit</a><br />
+			&copy; {new Date().getFullYear()} <a href="/">Thomas Païs</a> —
+			<em>Toulouse</em>
+		</p>
 	</div>
 </footer>
 
 <style>
 	footer {
-		border-top: 1px solid var(--separator-color);
-	}
-
-	.grid {
+		background-color: var(--background);
+		border-top: 1px solid var(--border);
+		box-sizing: border-box;
 		display: grid;
 		grid-template-columns: 1fr minmax(auto, 1024px) 1fr;
+		column-gap: 1.5rem;
+		height: 128px;
 	}
 
-	.flex {
+	div {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
-		padding-block: 1.5rem;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5rem;
 		grid-column: 2;
-	}
-
-	.links {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		height: inherit;
+		color: var(--muted-foreground);
 	}
 
 	ul {
 		list-style: none;
 		display: flex;
-		flex-direction: column;
 		gap: 0.5rem;
 		padding-left: 0;
 		margin-block: 0;
 	}
 
-	h3 {
-		margin-top: 0;
-		margin-bottom: 1rem;
-	}
-
 	a {
-		text-decoration: none;
-		color: var(--soft-text-color);
-		font-weight: 500;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
+		color: inherit;
+		transition: color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	a:hover {
-		color: var(--text-color);
+		color: var(--accent-foreground);
 	}
 
-	.copyrights {
+	ul a {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
-		height: 48px;
+		width: 2.25rem;
+		height: 2rem;
+		border-radius: 0.375rem;
+		transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	ul a:hover {
+		background-color: var(--accent);
 	}
 
 	p {
+		text-align: center;
+		line-height: 2;
+		font-size: 0.875rem;
 		font-weight: 500;
+		text-underline-offset: 4px;
 		margin-block: 0;
 	}
-	em {
-		color: var(--soft-text-color);
+
+	@media (min-width: 640px) {
+		footer {
+			height: 96px;
+		}
+
+		div {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		ul {
+			order: 2;
+		}
+
+		p {
+			text-align: left;
+		}
 	}
 </style>

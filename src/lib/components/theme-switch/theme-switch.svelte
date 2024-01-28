@@ -6,9 +6,9 @@
 
 	import { mode, userPrefersMode } from 'mode-watcher';
 
-	import Moon from '~icons/lucide/moon';
-	import Sun from '~icons/lucide/sun';
-	import Monitor from '~icons/lucide/monitor';
+	import Moon from '~icons/tabler/moon';
+	import Sun from '~icons/tabler/sun';
+	import Monitor from '~icons/tabler/device-desktop';
 
 	import * as m from '$paraglide/messages';
 

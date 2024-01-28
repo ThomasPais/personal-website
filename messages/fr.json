@@ -13,5 +13,6 @@
 	"$navigation": "Navigation",
 	"$categories": "Catégories",
 	"$welcome_title": "Bienvenue sur SvelteKit",
-	"$welcome_text": "Salut, je m'appelle Thomas ! Je suis étudiant à l'Enseeiht, une école d'ingénieur toulousaine spécialisée en électronique."
+	"$welcome_text": "Salut, je m'appelle Thomas ! Je suis étudiant à l'Enseeiht, une école d'ingénieur toulousaine spécialisée en électronique.",
+	"footer": "Fait avec ❤️ en utilisant"
 }
