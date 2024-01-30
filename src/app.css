@@ -12,3 +12,16 @@ body {
     background-color: var(--background);
     font-family: 'Geist Sans', sans-serif;
 }
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.125rem;
+    background: var(--muted-foreground);
+}

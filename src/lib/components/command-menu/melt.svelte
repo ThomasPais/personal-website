@@ -24,7 +24,7 @@
 	let results: AwaitedResult[] = [];
 
 	async function getPagefind() {
-		const res = await fetch('/pagefind/pagefind.js');
+		const res = await fetch('');
 		if (!res.ok) {
 			return null;
 		}
@@ -160,16 +160,13 @@
 		<div class="d" use:melt={$menu} class:hidden={!$inputValue}>
 			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<div class="e">
-				<p aria-live="polite" class="px-4 py-1 font-light opacity-50">
+				<p aria-live="polite" class="f">
 					{results.length === 0 ? 'No results' : `Found ${results.length} results`}
 				</p>
 				{#each results as { data }, index (index)}
 					{@const isLast = index === results.length - 1}
 
-					<div
-						use:melt={$option({ value: data, label: data.meta.title })}
-						class="relative scroll-my-2 rounded-md px-4 py-2 data-[disabled]:opacity-50"
-					>
+					<div use:melt={$option({ value: data, label: data.meta.title })} class="g">
 						<a
 							class="title text-lg font-semibold underline hover:opacity-75"
 							href={sanitizeLink(data.url)}>{data.meta.title}</a
@@ -316,6 +313,26 @@
 		border-radius: 0.5rem;
 		max-height: 100%;
 		color: #ffffff;
+	}
+
+	.f {
+		padding-top: 0.25rem;
+		padding-bottom: 0.25rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		font-weight: 300;
+		opacity: 0.5;
+	}
+
+	.g {
+		position: relative;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		border-radius: 0.375rem;
+		scroll-margin-top: 0.5rem;
+		scroll-margin-bottom: 0.5rem;
 	}
 
 	/*[data-melt-combobox-menu] :global(mark) {

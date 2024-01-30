@@ -1,19 +1,22 @@
 <script lang="ts">
 	import { createSelect, melt, type SelectOption } from '@melt-ui/svelte';
+	import type { Language } from './types';
 	import { fade } from 'svelte/transition';
 
 	import { route } from '$lib/i18n';
-	import { page } from '$app/stores';
-
 	import { languageTag } from '$paraglide/runtime';
-	import type { Language } from './types';
+	import * as m from '$paraglide/messages';
+
+	import { page } from '$app/stores';
 
 	import EN from '~icons/circle-flags/en';
 	import FR from '~icons/circle-flags/fr';
 	import ES from '~icons/circle-flags/es';
-	import Languages from '~icons/lucide/languages';
+	import Languages from '~icons/tabler/language';
 
-	import * as m from '$paraglide/messages';
+	function langToOption(language: Language): SelectOption<Language> {
+		return languages.find(({ value }) => value === language) ?? languages[0];
+	}
 
 	const languages: SelectOption<Language>[] = [
 		{ value: 'en', label: 'English' },
@@ -29,70 +32,68 @@
 		forceVisible: true,
 		defaultSelected: langToOption(languageTag()),
 		positioning: {
-			placement: 'bottom'
+			placement: 'bottom-end',
+			gutter: 16
 		},
 		onSelectedChange: ({ curr, next }) => {
 			const definedNext = next ?? curr ?? languages[0];
 			return definedNext;
 		}
 	});
-
-	function langToOption(mode: Language): SelectOption<Language> {
-		return languages.find(({ value }) => value === mode) ?? languages[0];
-	}
 </script>
 
-<button class="trigger" aria-label="Open language switcher" use:melt={$trigger}>
-	<Languages color="var(--soft-text-color)" width="2rem" height="2rem" />
+<button aria-label="Open language switcher" use:melt={$trigger}>
+	<Languages width="1.5rem" height="1.5rem" />
 </button>
 
 {#if $open}
 	<div use:melt={$menu} class="menu" transition:fade={{ duration: 100 }}>
 		<div use:melt={$arrow} />
-		<a
-			href={route($page.url.pathname, 'en')}
-			hreflang={'en'}
-			use:melt={$option({ value: 'en', label: 'English' })}
-			class={$isSelected('en') ? 'option selected' : 'option'}
-		>
-			<EN color="inherit" width="1.5rem" height="1.5rem" />
-			<span>{'English'}</span>
-		</a>
-
-		<a
-			href={route($page.url.pathname, 'fr')}
-			hreflang={'fr'}
-			use:melt={$option({ value: 'fr', label: 'Français' })}
-			class={$isSelected('fr') ? 'option selected' : 'option'}
-		>
-			<FR color="inherit" width="1.5rem" height="1.5rem" />
-			<span>{'Français'}</span>
-		</a>
-
-		<a
-			href={route($page.url.pathname, 'es')}
-			hreflang={'es'}
-			use:melt={$option({ value: 'es', label: 'Español' })}
-			class={$isSelected('es') ? 'option selected' : 'option'}
-		>
-			<ES color="inherit" width="1.5rem" height="1.5rem" />
-			<span>{'Español'}</span>
-		</a>
+		<ul>
+			{#each languages as { value, label }}
+				<li>
+					<a
+						href={route($page.url.pathname, value)}
+						hreflang={value}
+						use:melt={$option({ value, label })}
+						class={$isSelected(value) ? 'selected' : ''}
+					>
+						{#if value === 'en'}
+							<EN width="1.5rem" height="1.5rem" />
+						{:else if value === 'fr'}
+							<FR width="1.5rem" height="1.5rem" />
+						{:else}
+							<ES width="1.5rem" height="1.5rem" />
+						{/if}
+						<span>{label}</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
 	</div>
 {/if}
 
 <style>
 	button {
-		background: none;
-		border: none;
 		cursor: pointer;
+		border: none;
+		background: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-inline: 0;
+		width: 2.25rem;
+		height: 2rem;
+		border-radius: 0.375rem;
+		color: var(--muted-foreground);
+		transition-property: color, background-color;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 0.15s;
 	}
 
-	.trigger {
-		font-family: inherit;
-		transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 300ms;
+	button:hover {
+		color: var(--accent-foreground);
+		background-color: var(--accent);
 	}
 
 	.menu {
@@ -103,10 +104,16 @@
 		border-radius: 0.375rem;
 		width: 8rem;
 		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-		background-color: var(--surface-color);
+		background-color: var(--muted);
 	}
 
-	.option {
+	ul {
+		list-style: none;
+		padding-left: 0;
+		margin-block: 0;
+	}
+
+	a {
 		font-family: inherit;
 		display: flex;
 		padding-block: 0.25rem;

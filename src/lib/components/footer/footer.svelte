@@ -36,7 +36,6 @@
 	footer {
 		background-color: var(--background);
 		border-top: 1px solid var(--border);
-		box-sizing: border-box;
 		display: grid;
 		grid-template-columns: 1fr minmax(auto, 1024px) 1fr;
 		column-gap: 1.5rem;

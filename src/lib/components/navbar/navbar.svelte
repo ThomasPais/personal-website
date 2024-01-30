@@ -6,10 +6,10 @@
 	import * as m from '$paraglide/messages';
 
 	import Circuit from '~icons/tabler/cpu';
-	import Language from '~icons/tabler/language';
 	import Sun from '~icons/tabler/sun';
 
-	import CommandMenu from '../command-menu/command-menu.svelte';
+	import CommandMenu from '../command-menu/melt.svelte';
+	import LangSwitch from '../lang-switch/lang-switch.svelte';
 
 	let headerClass: string = 'big-header';
 
@@ -50,7 +50,7 @@
 		<div class="utilities">
 			<CommandMenu />
 			<button> <Sun style="width: 1.5rem; height: 1.5rem;" /> </button>
-			<button> <Language style="width: 1.5rem; height: 1.5rem;" /> </button>
+			<LangSwitch />
 		</div>
 	</div>
 </header>
@@ -58,9 +58,8 @@
 <style>
 	header {
 		position: fixed;
-		width: 100%;
+		width: calc((100vw - 0.5rem));
 		top: 0;
-		box-sizing: border-box;
 		display: grid;
 		grid-template-columns: 1fr minmax(auto, 1024px) 1fr;
 		column-gap: 1.5rem;
