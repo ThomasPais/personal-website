@@ -32,8 +32,9 @@
 		forceVisible: true,
 		defaultSelected: langToOption(languageTag()),
 		positioning: {
-			placement: 'bottom-end',
-			gutter: 16
+			placement: 'bottom',
+			fitViewport: true,
+			gutter: 8
 		},
 		onSelectedChange: ({ curr, next }) => {
 			const definedNext = next ?? curr ?? languages[0];
@@ -74,16 +75,10 @@
 {/if}
 
 <style>
-	button {
-		cursor: pointer;
-		border: none;
-		background: none;
+	button,
+	a {
 		display: flex;
-		justify-content: center;
 		align-items: center;
-		padding-inline: 0;
-		width: 2.25rem;
-		height: 2rem;
 		border-radius: 0.375rem;
 		color: var(--muted-foreground);
 		transition-property: color, background-color;
@@ -91,20 +86,30 @@
 		transition-duration: 0.15s;
 	}
 
-	button:hover {
+	button:hover,
+	a:hover {
 		color: var(--accent-foreground);
 		background-color: var(--accent);
+	}
+
+	button {
+		cursor: pointer;
+		border: none;
+		background: none;
+		justify-content: center;
+		padding-inline: 0;
+		width: 2.25rem;
+		height: 2rem;
 	}
 
 	.menu {
 		display: flex;
 		flex-direction: column;
-		padding-block: 0.25rem;
-		padding-inline: 0.25rem;
+		padding: 0.25rem;
 		border-radius: 0.375rem;
-		width: 8rem;
-		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-		background-color: var(--muted);
+		min-width: 8rem;
+		border: 1px solid var(--border);
+		background-color: var(--background);
 	}
 
 	ul {
@@ -115,21 +120,10 @@
 
 	a {
 		font-family: inherit;
-		display: flex;
-		padding-block: 0.25rem;
-		padding-inline: 0.25rem;
+		padding-block: 0.375rem;
+		padding-inline: 0.5rem;
 		gap: 0.5rem;
-		align-items: center;
-		border-radius: 0.375rem;
-		transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 300ms;
-		color: var(--soft-text-color);
 		text-decoration: none;
-	}
-
-	.option:hover {
-		background-color: var(--highlight-surface-color);
 	}
 
 	.selected {
@@ -139,6 +133,5 @@
 	span {
 		font-size: 0.875rem;
 		line-height: 1.25rem;
-		font-weight: 600;
 	}
 </style>

@@ -6,6 +6,8 @@
 	import LetterKSmall from '~icons/tabler/letter-k-small';
 	import Search from '~icons/tabler/search';
 	import CaretDown from '~icons/tabler/caret-down';
+	import X from '~icons/tabler/x';
+
 	import { onMount } from 'svelte';
 	import type {
 		Pagefind,
@@ -71,6 +73,7 @@
 			return undefined;
 		},
 		forceVisible: true,
+		positioning: { gutter: 2, placement: 'bottom' },
 		preventScroll: false,
 		highlightOnHover: false
 	});
@@ -78,7 +81,7 @@
 	let comboboxInput: HTMLInputElement | null = null;
 
 	const {
-		elements: { trigger, portalled, content, overlay },
+		elements: { trigger, portalled, content, overlay, close },
 		states: { open }
 	} = createDialog({
 		onOpenChange({ next }) {
@@ -132,32 +135,32 @@
 	</kbd>
 </button>
 
-<div use:melt={$portalled} class="contents">
+<div use:melt={$portalled} class="portalled">
 	<div use:melt={$overlay} class="overlay" />
 	<div use:melt={$content} class="content">
-		<div class="a">
-			<div class="b">
-				<Search
-					style="width: 1.25rem; height: 1.25rem; position: absolute; 
+		<div class="menu-header">
+			<Search
+				style="width: 1.25rem; height: 1.25rem; position: absolute; 
                     top: 50%; margin-left: 0.5rem; transform: translate(0,-50%);"
-				/>
+			/>
 
-				<input
-					bind:this={comboboxInput}
-					use:melt={$input}
-					class="c"
-					placeholder="Search..."
-					on:keydown={(e) => {
-						if (e.key === 'Escape') {
-							cbOpen.set(false);
-							open.set(false);
-						}
-					}}
-				/>
-			</div>
+			<input
+				bind:this={comboboxInput}
+				use:melt={$input}
+				placeholder="Search..."
+				on:keydown={(e) => {
+					if (e.key === 'Escape') {
+						cbOpen.set(false);
+						open.set(false);
+					}
+				}}
+			/>
+			<button use:melt={$close} aria-label="close" class="close">
+				<X width="1.5rem" height="1.5rem" />
+			</button>
 		</div>
 
-		<div class="d" use:melt={$menu} class:hidden={!$inputValue}>
+		<div class="results" use:melt={$menu} class:hidden={!$inputValue}>
 			<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 			<div class="e">
 				<p aria-live="polite" class="f">
@@ -211,7 +214,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: 16rem;
+		width: 14rem;
 		height: 2.25rem;
 		padding-left: 1rem;
 		padding-right: 0.375rem;
@@ -239,7 +242,7 @@
 		border-radius: 0.25rem;
 	}
 
-	.contents {
+	.portalled {
 		display: contents;
 	}
 
@@ -261,44 +264,77 @@
 		transform: translate(-50%);
 		display: grid;
 		place-items: center;
-		border-radius: 0.5rem;
-		border: 1px solid var(--border);
-		background-color: var(--background);
 	}
 
-	.a {
+	.menu-header {
+		position: relative;
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
 		width: 100%;
 		height: 100%;
+		border: 1px solid var(--border);
+		background-color: var(--background);
+		border-radius: 0.5rem 0.5rem 0 0;
+		padding-bottom: 1px;
 	}
 
-	.b {
-		position: relative;
+	input {
 		display: flex;
-	}
-
-	.c {
-		display: flex;
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
+		padding-right: 2rem;
 		padding-left: 2rem;
 		justify-content: space-between;
 		align-items: center;
-		border-radius: 0.5rem;
-		border-width: 1px;
+		border: none;
 		height: 2.5rem;
+		background: none;
 		color: #ffffff;
-		width: calc(100vw-2rem);
 		max-width: 600px;
 	}
 
-	.d {
+	input:focus {
+		outline: none;
+	}
+
+	.close {
+		position: absolute;
+		top: 50%;
+		right: 0.5rem;
+		transform: translate(0, -50%);
+		cursor: pointer;
+		border: none;
+		background: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-inline: 0;
+		width: 2.25rem;
+		height: 2rem;
+		border-radius: 0.375rem;
+		color: var(--muted-foreground);
+		transition-property: color, background-color;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 0.15s;
+	}
+
+	.close:hover {
+		color: var(--accent-foreground);
+		background-color: var(--accent);
+	}
+
+	.results {
 		display: flex;
 		z-index: 10;
+		box-sizing: border-box;
 		flex-direction: column;
 		max-height: min(600px, 50vh);
+		background-color: var(--background);
+		border-bottom: 1px solid var(--border);
+		border-left: 1px solid var(--border);
+		border-right: 1px solid var(--border);
+		border-radius: 0 0 0.5rem 0.5rem;
+		width: 100%;
 	}
 
 	.e {

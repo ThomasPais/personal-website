@@ -32,6 +32,7 @@
 		column-gap: 1rem;
 		flex: 1;
 		margin-top: 128px;
+		margin-bottom: 2rem;
 	}
 
 	.content {

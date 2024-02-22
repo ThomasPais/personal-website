@@ -1,18 +1,27 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+
 	"$construction_title": "In construction:",
 	"$construction_text": "This website is in its early stages. Expect breaking changes until 1.0 is ready! And lots of new stuff!",
+
 	"$light": "Light",
 	"$dark": "Dark",
 	"$system": "System",
+
 	"$tooltip_theme": "Switch theme",
 	"$tooltip_lang": "Switch language",
+
 	"$home": "Home",
 	"$about": "About",
+	"$articles": "Articles",
+	"$projects": "Projects",
 	"$contact": "Contact",
+
 	"$navigation": "Navigation",
 	"$categories": "Categories",
-	"$welcome_title": "Welcome to SvelteKit",
-	"$welcome_text": "Hello, my name is Thomas! I am a student at Enseeiht, an engineering school in Toulouse specializing in electronics.",
+
+	"$home_title": "Hi, I am Thomas, an engineering student",
+	"$home_text": "Studying engineering at Enseeiht in Toulouse, I’m passionate about electronics, aeronautics, and computer science. My curiosity drives my love for learning. Explore my journey and diverse projects on my site.",
+
 	"footer": "Made with ❤️ using"
 }

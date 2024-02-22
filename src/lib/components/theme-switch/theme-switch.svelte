@@ -27,7 +27,8 @@
 		defaultSelected: modeToOption($userPrefersMode),
 		positioning: {
 			placement: 'bottom',
-			fitViewport: true
+			fitViewport: true,
+			gutter: 8
 		},
 		onSelectedChange: ({ curr, next }) => {
 			const definedNext = next ?? curr ?? themes[0];
@@ -47,9 +48,9 @@
 
 <button class="trigger" aria-label="Open theme switcher" use:melt={$trigger}>
 	{#if $mode === 'dark'}
-		<Moon color="var(--soft-text-color)" width="2rem" height="2rem" />
+		<Moon width="1.5rem" height="1.5rem" />
 	{:else}
-		<Sun color="var(--soft-text-color)" width="2rem" height="2rem" />
+		<Sun width="1.5rem" height="1.5rem" />
 	{/if}
 </button>
 
@@ -60,7 +61,7 @@
 			use:melt={$option({ value: 'dark', label: 'Dark' })}
 			class={$isSelected('dark') ? 'option selected' : 'option'}
 		>
-			<Moon color="inherit" width="1.5rem" height="1.5rem" />
+			<Moon width="1.5rem" height="1.5rem" />
 			<span>{m.$dark()}</span>
 		</button>
 
@@ -68,7 +69,7 @@
 			use:melt={$option({ value: 'light', label: 'Light' })}
 			class={$isSelected('light') ? 'option selected' : 'option'}
 		>
-			<Sun color="inherit" width="1.5rem" height="1.5rem" />
+			<Sun width="1.5rem" height="1.5rem" />
 			<span>{m.$light()}</span>
 		</button>
 
@@ -76,7 +77,7 @@
 			use:melt={$option({ value: 'system', label: 'System' })}
 			class={$isSelected('system') ? 'option selected' : 'option'}
 		>
-			<Monitor color="inherit" width="1.5rem" height="1.5rem" />
+			<Monitor width="1.5rem" height="1.5rem" />
 			<span>{m.$system()}</span>
 		</button>
 	</div>
@@ -84,54 +85,53 @@
 
 <style>
 	button {
-		background: none;
-		border: none;
 		cursor: pointer;
+		border: none;
+		background: none;
+		display: flex;
+		align-items: center;
+		border-radius: 0.375rem;
+		color: var(--muted-foreground);
+		transition-property: color, background-color;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 0.15s;
+	}
+
+	button:hover {
+		color: var(--accent-foreground);
+		background-color: var(--accent);
 	}
 
 	.trigger {
-		font-family: inherit;
-		transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 300ms;
+		width: 2.25rem;
+		height: 2rem;
+		padding-inline: 0;
+		justify-content: center;
 	}
 
 	.menu {
 		display: flex;
 		flex-direction: column;
-		padding-block: 0.25rem;
-		padding-inline: 0.25rem;
+		padding: 0.25rem;
 		border-radius: 0.375rem;
-		width: 8rem;
-		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-		background-color: var(--surface-color);
+		min-width: 8rem;
+		border: 1px solid var(--border);
+		background-color: var(--background);
 	}
 
 	.option {
 		font-family: inherit;
-		display: flex;
-		padding-block: 0.25rem;
-		padding-inline: 0.25rem;
+		padding-block: 0.375rem;
+		padding-inline: 0.5rem;
 		gap: 0.5rem;
-		align-items: center;
-		border-radius: 0.375rem;
-		transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 300ms;
-		color: var(--soft-text-color);
-	}
-
-	.option:hover {
-		background-color: var(--highlight-surface-color);
 	}
 
 	.selected {
-		color: var(--text-color);
+		color: var(--accent-foreground);
 	}
 
 	span {
 		font-size: 0.875rem;
 		line-height: 1.25rem;
-		font-weight: 600;
 	}
 </style>

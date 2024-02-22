@@ -8,8 +8,10 @@
 	import Circuit from '~icons/tabler/cpu';
 	import Sun from '~icons/tabler/sun';
 
-	import CommandMenu from '../command-menu/melt.svelte';
+	import CommandMenu from '../command-menu/command-menu.svelte';
 	import LangSwitch from '../lang-switch/lang-switch.svelte';
+	import ThemeSwitch from '../theme-switch/theme-switch.svelte';
+	import MobileMenu from './mobile-menu.svelte';
 
 	let headerClass: string = 'big-header';
 
@@ -36,21 +38,22 @@
 
 			<ul>
 				<li>
-					<a href={route('/about', languageTag())} hreflang={languageTag()}>About Me</a>
+					<a href={route('/about', languageTag())} hreflang={languageTag()}>{m.$about()}</a>
 				</li>
 				<li>
-					<a href={route('/test', languageTag())} hreflang={languageTag()}>Articles</a>
+					<a href={route('/test', languageTag())} hreflang={languageTag()}>{m.$articles()}</a>
 				</li>
 				<li>
-					<a href={route('/', languageTag())} hreflang={languageTag()}>Projects</a>
+					<a href={route('/', languageTag())} hreflang={languageTag()}>{m.$projects()}</a>
 				</li>
 			</ul>
 		</nav>
 
 		<div class="utilities">
 			<CommandMenu />
-			<button> <Sun style="width: 1.5rem; height: 1.5rem;" /> </button>
+			<ThemeSwitch />
 			<LangSwitch />
+			<MobileMenu />
 		</div>
 	</div>
 </header>
@@ -107,7 +110,7 @@
 
 	ul {
 		list-style: none;
-		display: flex;
+		display: none;
 		gap: 1.5rem;
 		padding-left: 0;
 		margin-block: 0;
@@ -128,31 +131,12 @@
 		gap: 0.5rem;
 	}
 
-	button {
-		cursor: pointer;
-		border: none;
-		background: none;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding-inline: 0;
-		width: 2.25rem;
-		height: 2rem;
-		border-radius: 0.375rem;
-		color: var(--muted-foreground);
-		transition-property: color, background-color;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 0.15s;
-	}
-
-	button:hover {
-		color: var(--accent-foreground);
-		background-color: var(--accent);
-	}
-
 	@media (min-width: 480px) {
 	}
 
 	@media (min-width: 768px) {
+		ul {
+			display: flex;
+		}
 	}
 </style>

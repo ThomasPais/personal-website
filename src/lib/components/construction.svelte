@@ -24,7 +24,7 @@
 		--icon-align: baseline;
 
 		padding: 1rem;
-		margin-block: 1rem;
+		margin-top: 3rem;
 		border-radius: 0.5rem;
 		border: 1px solid var(--border);
 		background-color: var(--background);
