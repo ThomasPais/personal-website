@@ -222,7 +222,6 @@
 		background-color: var(--background);
 		border: 1px solid var(--border);
 		border-radius: 0.5rem;
-
 		transition-property: color, background-color;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-duration: 0.15s;
@@ -289,7 +288,6 @@
 		border: none;
 		height: 2.5rem;
 		background: none;
-		color: #ffffff;
 		max-width: 600px;
 	}
 
@@ -348,7 +346,6 @@
 		gap: 0;
 		border-radius: 0.5rem;
 		max-height: 100%;
-		color: #ffffff;
 	}
 
 	.f {

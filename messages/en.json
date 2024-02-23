@@ -1,27 +1,23 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-
 	"$construction_title": "In construction:",
 	"$construction_text": "This website is in its early stages. Expect breaking changes until 1.0 is ready! And lots of new stuff!",
-
 	"$light": "Light",
 	"$dark": "Dark",
 	"$system": "System",
-
 	"$tooltip_theme": "Switch theme",
 	"$tooltip_lang": "Switch language",
-
 	"$home": "Home",
-	"$about": "About",
+	"$about": "About Me",
 	"$articles": "Articles",
 	"$projects": "Projects",
 	"$contact": "Contact",
-
 	"$navigation": "Navigation",
 	"$categories": "Categories",
-
 	"$home_title": "Hi, I am Thomas, an engineering student",
 	"$home_text": "Studying engineering at Enseeiht in Toulouse, I’m passionate about electronics, aeronautics, and computer science. My curiosity drives my love for learning. Explore my journey and diverse projects on my site.",
-
+	"$about_text_1": "As an engineering student at Enseeiht, a renowned institution in Toulouse with a focus on electronics, I am deeply passionate about electronics, aeronautics, and computer science.",
+	"$about_text_2": "My insatiable curiosity drives me to understand the inner workings of things and fuels my love for continuous learning and self-improvement. I invite you to delve into my journey, or explore my diverse array of articles and projects that span across multiple fields.",
+	"resume": "Resume",
 	"footer": "Made with ❤️ using"
 }

@@ -14,7 +14,10 @@
 	"$contact": "Contacto",
 	"$navigation": "Navegación",
 	"$categories": "Categorías",
-	"$welcome_title": "Bienvenido a SvelteKit",
-	"$welcome_text": "¡Hola, mi nombre es Thomas! Soy estudiante en Enseeiht, una escuela de ingeniería en Toulouse especializada en electrónica.",
+	"$home_title": "Hola, soy Thomas, estudiante de ingeniería",
+	"$home_text": "Estudiando ingeniería en Enseeiht en Toulouse, me apasionan la electrónica, la aeronáutica y la informática. Mi curiosidad impulsa mi amor por el aprendizaje. Explora mi trayectoria y diversos proyectos en mi sitio.",
+	"$about_text_1": "Como estudiante de ingeniería en Enseeiht, una institución renombrada en Toulouse con un enfoque en electrónica, me apasiona profundamente la electrónica, la aeronáutica y la informática.",
+	"$about_text_2": "Mi insaciable curiosidad me impulsa a entender el funcionamiento interno de las cosas y alimenta mi amor por el aprendizaje continuo y la auto-mejora. Te invito a sumergirte en mi viaje, o explorar mi diversa gama de artículos y proyectos que abarcan múltiples campos.",
+	"resume": "Mi CV",
 	"footer": "Hecho con ❤️ usando"
 }

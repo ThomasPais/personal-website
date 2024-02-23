@@ -14,7 +14,10 @@
 	"$contact": "Contact",
 	"$navigation": "Navigation",
 	"$categories": "Catégories",
-	"$welcome_title": "Bienvenue sur SvelteKit",
-	"$welcome_text": "Salut, je m'appelle Thomas ! Je suis étudiant à l'Enseeiht, une école d'ingénieur toulousaine spécialisée en électronique.",
+	"$home_title": "Salut, je suis Thomas, un étudiant en école d'ingénieur",
+	"$home_text": "Étudiant en ingénierie à l’Enseeiht à Toulouse, je suis passionné par l’électronique, l’aéronautique et l’informatique. Ma curiosité alimente mon amour pour l’apprentissage. Explorez mon parcours et divers projets sur mon site.",
+	"$about_text_1": "En tant qu’étudiant en ingénierie à l’Enseeiht, une institution renommée à Toulouse avec un accent sur l’électronique, je suis profondément passionné par l’électronique, l’aéronautique et l’informatique.",
+	"$about_text_2": "Ma curiosité insatiable me pousse à comprendre le fonctionnement interne des choses et alimente mon amour pour l’apprentissage continu et l’amélioration de soi. Je vous invite à plonger dans mon parcours, ou à explorer mon large éventail d’articles et de projets qui couvrent de nombreux domaines.",
+	"resume": "Mon CV",
 	"footer": "Fait avec ❤️ en utilisant"
 }

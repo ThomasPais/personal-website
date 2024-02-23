@@ -6,7 +6,6 @@
 	import * as m from '$paraglide/messages';
 
 	import Circuit from '~icons/tabler/cpu';
-	import Sun from '~icons/tabler/sun';
 
 	import CommandMenu from '../command-menu/command-menu.svelte';
 	import LangSwitch from '../lang-switch/lang-switch.svelte';
@@ -41,10 +40,10 @@
 					<a href={route('/about', languageTag())} hreflang={languageTag()}>{m.$about()}</a>
 				</li>
 				<li>
-					<a href={route('/test', languageTag())} hreflang={languageTag()}>{m.$articles()}</a>
+					<a href={route('/articles', languageTag())} hreflang={languageTag()}>{m.$articles()}</a>
 				</li>
 				<li>
-					<a href={route('/', languageTag())} hreflang={languageTag()}>{m.$projects()}</a>
+					<a href={route('/projects', languageTag())} hreflang={languageTag()}>{m.$projects()}</a>
 				</li>
 			</ul>
 		</nav>

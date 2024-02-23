@@ -1,22 +1,23 @@
 <script lang="ts">
 	import Download from '~icons/tabler/download';
+
+	import { route } from '$lib/i18n';
+	import { languageTag } from '$paraglide/runtime';
+	import * as m from '$paraglide/messages';
 </script>
 
 <h1>About Me</h1>
 
 <p>
-	As an engineering student at Enseeiht, a renowned institution in Toulouse with a focus on
-	electronics, I am deeply passionate about electronics, aeronautics, and computer science.
+	{m.$about_text_1()}
 </p>
 
 <p>
-	My insatiable curiosity drives me to understand the inner workings of things and fuels my love for
-	continuous learning and self-improvement. I invite you to delve into my journey, or explore my
-	diverse array of articles and projects that span across multiple fields.
+	{m.$about_text_2()}
 </p>
 
 <div class="resume">
-	<a href="/">Resume <Download width="1rem" height="1rem" /></a>
+	<a href="/">{m.resume()} <Download width="1rem" height="1rem" /></a>
 </div>
 
 <style>

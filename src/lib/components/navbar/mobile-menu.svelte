@@ -39,23 +39,23 @@
 				<ul>
 					<li>
 						<a use:melt={$close} href={route('/', languageTag())} hreflang={languageTag()}>
-							Home
+							{m.$home()}
 						</a>
 					</li>
 
 					<li>
 						<a use:melt={$close} href={route('/about', languageTag())} hreflang={languageTag()}>
-							About Me
+							{m.$about()}
 						</a>
 					</li>
 					<li>
 						<a use:melt={$close} href={route('/test', languageTag())} hreflang={languageTag()}>
-							Articles
+							{m.$articles()}
 						</a>
 					</li>
 					<li>
 						<a use:melt={$close} href={route('/', languageTag())} hreflang={languageTag()}>
-							Projects
+							{m.$projects()}
 						</a>
 					</li>
 				</ul>
