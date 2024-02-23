@@ -3,9 +3,7 @@
 	import type { Language } from './types';
 	import { fade } from 'svelte/transition';
 
-	import { route } from '$lib/i18n';
 	import { languageTag } from '$paraglide/runtime';
-	import * as m from '$paraglide/messages';
 
 	import { page } from '$app/stores';
 
@@ -54,7 +52,7 @@
 			{#each languages as { value, label }}
 				<li>
 					<a
-						href={route($page.url.pathname, value)}
+						href={$page.url.pathname}
 						hreflang={value}
 						use:melt={$option({ value, label })}
 						class={$isSelected(value) ? 'selected' : ''}

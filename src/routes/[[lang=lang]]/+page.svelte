@@ -3,8 +3,6 @@
 	import Box from '~icons/tabler/box';
 	import User from '~icons/tabler/user';
 
-	import { route } from '$lib/i18n';
-	import { languageTag } from '$paraglide/runtime';
 	import * as m from '$paraglide/messages';
 </script>
 
@@ -16,15 +14,15 @@
 	</p>
 
 	<div class="links">
-		<a href={route('/about', languageTag())} hreflang={languageTag()}>
+		<a href="/about">
 			{m.$about()}
 			<User width="1rem" height="1rem" />
 		</a>
-		<a href={route('/articles', languageTag())} hreflang={languageTag()}>
+		<a href="/articles">
 			{m.$articles()}
 			<Book width="1rem" height="1rem" />
 		</a>
-		<a href={route('/projects', languageTag())} hreflang={languageTag()}>
+		<a href="/projects">
 			{m.$projects()}
 			<Box width="1rem" height="1rem" />
 		</a>

@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Download from '~icons/tabler/download';
 
-	import { route } from '$lib/i18n';
-	import { languageTag } from '$paraglide/runtime';
 	import * as m from '$paraglide/messages';
 </script>
 

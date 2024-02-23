@@ -8,8 +8,6 @@ categories:
 published: true
 ---
 
-## Svelte
+# Svelte
 
 Media inside the **static** folder is served from `/`.
-
-![Svelte](favicon.png)

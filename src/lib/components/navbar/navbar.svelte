@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import { route } from '$lib/i18n';
-	import { languageTag } from '$paraglide/runtime';
 	import * as m from '$paraglide/messages';
 
 	import Circuit from '~icons/tabler/cpu';
@@ -30,20 +28,20 @@
 <header class={headerClass}>
 	<div class="container">
 		<nav>
-			<a href={route('/', languageTag())} hreflang={languageTag()} class="logo">
+			<a href="/" class="logo">
 				<Circuit style="width: 1.5rem; height: 1.5rem; color: var(--primary);" />
 				<span>Thomas Païs</span>
 			</a>
 
 			<ul>
 				<li>
-					<a href={route('/about', languageTag())} hreflang={languageTag()}>{m.$about()}</a>
+					<a href="/about">{m.$about()}</a>
 				</li>
 				<li>
-					<a href={route('/articles', languageTag())} hreflang={languageTag()}>{m.$articles()}</a>
+					<a href="/articles">{m.$articles()}</a>
 				</li>
 				<li>
-					<a href={route('/projects', languageTag())} hreflang={languageTag()}>{m.$projects()}</a>
+					<a href="/projects">{m.$projects()}</a>
 				</li>
 			</ul>
 		</nav>

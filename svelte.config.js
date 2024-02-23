@@ -27,6 +27,8 @@ const config = {
 		prerender: {
 			entries: ['/']
 		}
-	}
+	},
+
+	extensions: ['.svelte', '.md'],
 };
 export default config;

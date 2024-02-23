@@ -5,8 +5,7 @@
 	import { createDialog, melt } from '@melt-ui/svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { writable } from 'svelte/store';
-	import { route } from '$lib/i18n';
-	import { languageTag } from '$paraglide/runtime';
+
 	import * as m from '$paraglide/messages';
 
 	const open = writable(false);
@@ -38,23 +37,23 @@
 			<nav>
 				<ul>
 					<li>
-						<a use:melt={$close} href={route('/', languageTag())} hreflang={languageTag()}>
+						<a use:melt={$close} href="/">
 							{m.$home()}
 						</a>
 					</li>
 
 					<li>
-						<a use:melt={$close} href={route('/about', languageTag())} hreflang={languageTag()}>
+						<a use:melt={$close} href="/about">
 							{m.$about()}
 						</a>
 					</li>
 					<li>
-						<a use:melt={$close} href={route('/test', languageTag())} hreflang={languageTag()}>
+						<a use:melt={$close} href="/articles">
 							{m.$articles()}
 						</a>
 					</li>
 					<li>
-						<a use:melt={$close} href={route('/', languageTag())} hreflang={languageTag()}>
+						<a use:melt={$close} href="/projects">
 							{m.$projects()}
 						</a>
 					</li>
