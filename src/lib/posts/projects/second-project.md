@@ -1,10 +1,12 @@
 ---
 title: Second project
 description: Second project.
-date: '2023-4-14'
+publishedDate: '2023-3-11'
+updatedDate: '2025-9-12'
+readingTime: 84
 categories:
-  - sveltekit
-  - svelte
+    - sveltekit
+    - svelte
 published: true
 ---
 
@@ -15,6 +17,6 @@ It's my second project!
 
 ```ts
 function greet(name: string) {
-	console.log(`Hey ${name}! 👋`);
+	console.log(`Hey ${name}! 👋`)
 }
 ```

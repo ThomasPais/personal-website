@@ -1,10 +1,13 @@
 ---
-title: Second
-description: Second post.
-date: '2023-4-16'
+title: Second Article
+description: Second article.
+publishedDate: '2023-8-14'
+updatedDate: '2026-8-14'
+readingTime: 10
 categories:
-  - sveltekit
-  - svelte
+    - sveltekit
+    - svelte
+    - unity
 published: true
 ---
 

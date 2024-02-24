@@ -1,10 +1,12 @@
 ---
 title: First project
 description: First project.
-date: '2023-4-14'
+publishedDate: '2023-7-14'
+updatedDate: '2025-11-14'
+readingTime: 15
 categories:
-  - sveltekit
-  - svelte
+    - sveltekit
+    - svelte
 published: true
 ---
 
@@ -14,6 +16,6 @@ Hey friends! 👋
 
 ```ts
 function greet(name: string) {
-	console.log(`Hey ${name}! 👋`);
+	console.log(`Hey ${name}! 👋`)
 }
 ```

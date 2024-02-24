@@ -1,7 +1,11 @@
 <script lang="ts">
-	import { formatDate } from '$lib/utils';
+	import { formatDate } from '$lib/utils'
 
-	export let data;
+	import Clock from '~icons/tabler/clock'
+
+	import * as m from '$paraglide/messages'
+
+	export let data
 </script>
 
 <!-- SEO -->
@@ -13,34 +17,82 @@
 
 <article>
 	<!-- Title -->
-	<hgroup>
-		<h1>{data.meta.title}</h1>
-		<p>Published at {formatDate(data.meta.date)}</p>
-	</hgroup>
+	<h1>{data.meta.title}</h1>
+	<div class="info">
+		<div class="dates">
+			<span class="published">{formatDate(data.meta.publishedDate)}</span>
+			|
+			<span class="updated">Last updated: {formatDate(data.meta.updatedDate)}</span>
+		</div>
 
-	<!-- Tags -->
-	<div class="tags">
+		<span class="reading"><Clock width="1rem" height="1rem" />{data.meta.readingTime} min</span>
+	</div>
+
+	<!-- Categories -->
+	<div class="categories">
 		{#each data.meta.categories as category}
-			<span class="surface-4">&num;{category}</span>
+			<button class="category">{category}</button>
 		{/each}
 	</div>
 
 	<!-- Post -->
-	<div class="prose">
+	<div>
 		<svelte:component this={data.content} />
 	</div>
 </article>
 
 <style>
-	article {
-		margin-inline: auto;
-	}
-
 	h1 {
-		text-transform: capitalize;
+		font-size: 2.25rem;
+		line-height: 2.5rem;
+		font-weight: 700;
+		margin-bottom: 0;
 	}
 
-	.tags {
+	.info {
+		margin-top: 0.5rem;
 		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 0.875rem;
+	}
+
+	.published {
+		color: var(--muted-foreground);
+	}
+
+	.reading {
+		color: var(--muted-foreground);
+		display: flex;
+		gap: 0.25rem;
+		align-items: center;
+	}
+
+	.categories {
+		margin-top: 1rem;
+		margin-bottom: 3rem;
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.category {
+		cursor: pointer;
+		padding-block: 0.25rem;
+		padding-inline: 0.75rem;
+		border-radius: 0.25rem;
+		border: none;
+		display: flex;
+		gap: 0.25rem;
+		align-items: center;
+		text-transform: capitalize;
+		font-size: 0.75rem;
+		line-height: 1rem;
+		font-weight: 600;
+		transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+		background-color: var(--secondary);
+	}
+
+	.category:hover {
+		background-color: var(--border);
 	}
 </style>

@@ -1,19 +1,35 @@
 ---
-title: First article
+title: First Article
 description: First article.
-date: '2023-6-14'
+publishedDate: '2023-2-14'
+updatedDate: '2026-3-14'
+readingTime: 10
 categories:
-  - sveltekit
-  - svelte
+    - sveltekit
+    - svelte
 published: true
 ---
 
-# Markdown
+<script lang="ts">
+  import * as m from '$paraglide/messages';
+</script>
+
+## Markdown
 
 Hey friends! 👋
 
+## Potatoes
+
+#### Cooking
+
+## Bread
+
+# Svelte
+
+## Blog
+
 ```ts
 function greet(name: string) {
-	console.log(`Hey ${name}! 👋`);
+	console.log(`Hey ${name}! 👋`)
 }
 ```
